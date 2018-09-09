@@ -58,13 +58,13 @@ def find_interval_root(eps, delta, a, b, func):
 
 
 # Вычисляет дискриминант квадратного уравнения вида:
-# f(x) = a * x ^ 2 + b * x + c
+# a * x ^ 2 + b * x + c = 0
 def discriminant(a, b, c):
     return b ** 2 - 4 * a * c
 
 
 # Вычисляет корни квадратного уравнения вида:
-# f(x) = a * x ^ 2 + b * x + c
+# a * x ^ 2 + b * x + c = 0
 def find_quadratic_equation_roots(eps, a, b, c):
     D = discriminant(a, b, c)
 
