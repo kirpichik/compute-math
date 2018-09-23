@@ -29,8 +29,6 @@ def find_interval_root(eps, delta, a, b, func):
                 return point
             coeff += 1
 
-    print("pre", a, b)
-
     if a == inf and b == inf:
         raise RuntimeError("Interval is infinite in both directions!")
     elif a == inf:
@@ -40,7 +38,7 @@ def find_interval_root(eps, delta, a, b, func):
         border = calc_border(delta, a)
         return find_interval_root(eps, delta, border - delta, border, func)
 
-    # Разворачиваем аналогичный случай
+    # Разворачиваем альтернативный случай
     if func(a) > 0 and func(b) < 0:
         c = a
         a = b
@@ -48,12 +46,11 @@ def find_interval_root(eps, delta, a, b, func):
 
     while True:
         c = (a + b) / 2
-        value = func(c)
-        if abs(value) <= eps:
+        if abs(b - a) <= eps:
             return c
-        elif value > eps:
+        elif func(c) >= 0:
             b = c
-        elif value < -eps:
+        else:
             a = c
 
 
